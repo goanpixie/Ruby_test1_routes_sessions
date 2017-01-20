@@ -26,3 +26,35 @@ class SayController < ApplicationController
   end
 
 end
+
+
+---------------------------------------------------------
+
+Rails.application.routes.draw do
+  get 'say/hello'
+
+  get 'hellos/index'
+
+    root 'say#create'
+
+  resources :hello
+
+  post "hellos" => "hellos#hello"
+
+  
+
+  resources :say
+
+  post "say" => "say#create"
+
+
+  resources :say, path: '/say/hello'
+
+  post "say" => "say/hello#new"
+
+  post "say" => "say/hello#show"
+
+
+  resources :say, path: '/times'
+
+  post "say" => "times#reset"

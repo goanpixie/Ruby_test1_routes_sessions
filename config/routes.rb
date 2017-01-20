@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   post "say" => "say/hello#show"
 
 
+  resources :say, path: '/times'
+
+  post "say" => "times#reset"
+
+
+
 
 
 
